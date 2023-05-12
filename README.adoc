@@ -6,7 +6,7 @@ Ask questions to your documents without an internet connection, using the power 
 
 Built with https://github.com/hwchase17/langchain[LangChain] and https://github.com/nomic-ai/gpt4all[GPT4All] and https://github.com/ggerganov/llama.cpp[LlamaCpp].
 
-<img width="902" alt="demo" src="https://user-images.githubusercontent.com/721666/236942256-985801c9-25b9-48ef-80be-3acbb4575164.png">
+image::https://user-images.githubusercontent.com/721666/236942256-985801c9-25b9-48ef-80be-3acbb4575164.png[Example]
 
 # Environment Setup
 
