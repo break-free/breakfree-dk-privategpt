@@ -15,7 +15,7 @@ toolbox create --container $NAME
 # Install applications and packages
 
 ## List of applications to be installed
-APPLICATIONS="cmake gcc-c++ python3-pip"
+APPLICATIONS="cmake gcc-c++ python3-devel python3-pip"
 
 ## Install applications
 $RUN sudo dnf install -y $APPLICATIONS
