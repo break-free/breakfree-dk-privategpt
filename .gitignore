@@ -5,7 +5,7 @@
 models/
 
 # Source documents
-source_documents/
+source_documents/*
 
 # Local Chroma db
 .chroma/
