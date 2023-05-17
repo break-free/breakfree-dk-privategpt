@@ -1,4 +1,4 @@
-= privateGPT
+= Local BreakFree Delivery Kit privateGtP
 
 This repository copied from the generous contribution of https://github.com/imartinez[@imartinez] from https://github.com/imartinez/privateGPT.
 
@@ -12,15 +12,18 @@ image::https://user-images.githubusercontent.com/721666/236942256-985801c9-25b9-
 
 In order to set your environment up to run the code here, first install all requirements:
 
-```shell
+[source,bash]
+```
 pip install -r requirements.txt
 ```
 
-Then, download the 2 models and place them in a directory of your choice.
+Then, download the 2 models and place them in the `/model` directory (this needs to be created). Alternatively use a directory of your choice but be sure to update the `.env` file.
 - LLM: default to https://gpt4all.io/models/ggml-gpt4all-j-v1.3-groovy.bin[ggml-gpt4all-j-v1.3-groovy.bin]. If you prefer a different GPT4All-J compatible model, just download it and reference it in your `.env` file.
-- Embedding: default to https://huggingface.co/Pi3141/alpaca-native-7B-ggml/resolve/397e872bf4c83f4c642317a5bf65ce84a105786e/ggml-model-q4_0.bin[ggml-model-q4_0.bin]. If you prefer a different compatible Embeddings model, just download it and reference it in your `.env` file.
+- Embedding: default to https://huggingface.co/Pi3141/alpaca-native-7B-ggml/blob/main/ggml-model-q4_0.bin[ggml-model-q4_0.bin]. If you prefer a different compatible Embeddings model, just download it and reference it in your `.env` file.
 
 Review `.env` and edit the variables appropriately.
+
+[source,bash]
 ```
 MODEL_TYPE: supports LlamaCpp or GPT4All
 PERSIST_DIRECTORY: is the folder you want your vectorstore in
@@ -33,7 +36,7 @@ MODEL_N_CTX: Maximum token limit for both embeddings and LLM models
 
 == Dataset
 
-Use the BreakFree Delivery Kit PDF file, exported from Confluence. This is available either in https://s3.console.aws.amazon.com/s3/buckets/aws-dk-sourceoftruth-useast1-s3?region=us-east-1&tab=objects[the provided S3 bucket] or you can attempt to export it directly from Confluence.
+Use the BreakFree Delivery Kit PDF file, exported from Confluence. This is available either in https://s3.console.aws.amazon.com/s3/buckets/aws-dk-sourceoftruth-useast1-s3?region=us-east-1&tab=objects[the provided S3 bucket] or you can attempt to export it directly from Confluence. This document should be uploaded into the `source_documents` directory, which you may need to create. Alternatively, you can use a directory of your choice but be sure to update the `.env` file.
 
 == Instructions for ingesting the dataset
 
@@ -41,9 +44,7 @@ Put any and all .txt, .pdf, or .csv files into the `source_documents` directory.
 
 Run the following command to ingest all the data.
 
-```shell
-python ingest.py
-```
+    python ingest.py
 
 It will create a `db` folder containing the local vectorstore. Will take time, depending on the size of your documents.
 You can ingest as many documents as you want, and all will be accumulated in the local embeddings database. 
@@ -57,15 +58,11 @@ If you want to start from an empty database, delete the `db` folder.
 
 In order to ask a question, run a command like:
 
-```shell
-python privateGPT.py
-```
+    python privateGPT.py
 
 And wait for the script to require your input. 
 
-```shell
-> Enter a query:
-```
+    > Enter a query:
 
 Hit enter. You'll need to wait 20-30 seconds (depending on your machine) while the LLM model consumes the prompt and prepares the answer. Once done, it will print the answer and the 4 sources it used as context from your documents; you can then ask another question without re-running the script, just wait for the prompt again. 
 
