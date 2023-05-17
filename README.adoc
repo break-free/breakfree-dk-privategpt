@@ -18,8 +18,8 @@ pip install -r requirements.txt
 ```
 
 Then, download the 2 models and place them in the `/model` directory (this needs to be created). Alternatively use a directory of your choice but be sure to update the `.env` file.
-- LLM: default to https://gpt4all.io/models/ggml-gpt4all-j-v1.3-groovy.bin[ggml-gpt4all-j-v1.3-groovy.bin]. If you prefer a different GPT4All-J compatible model, just download it and reference it in your `.env` file.
-- Embedding: default to https://huggingface.co/Pi3141/alpaca-native-7B-ggml/blob/main/ggml-model-q4_0.bin[ggml-model-q4_0.bin]. If you prefer a different compatible Embeddings model, just download it and reference it in your `.env` file.
+* LLM: default to https://gpt4all.io/models/ggml-gpt4all-j-v1.3-groovy.bin[ggml-gpt4all-j-v1.3-groovy.bin]. If you prefer a different GPT4All-J compatible model, just download it and reference it in your `.env` file.
+* Embedding: default to https://huggingface.co/Pi3141/alpaca-native-7B-ggml/blob/main/ggml-model-q4_0.bin[ggml-model-q4_0.bin]. If you prefer a different compatible Embeddings model, just download it and reference it in your `.env` file.
 
 Review `.env` and edit the variables appropriately.
 
