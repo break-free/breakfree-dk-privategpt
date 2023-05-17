@@ -55,6 +55,8 @@ If you want to start from an empty database, delete the `db` folder.
 
 *Note:* the ingest process takes a significant amount of time. On an Intel i5 with 24 GB RAM the process took *8.5 hours*!
 
+*Note:* the ingest process still takes a significant amount of time on AWS c5.9xlarge; ~1hr 26min.
+
 == Ask questions to your documents, locally!
 
 In order to ask a question, run a command like:
