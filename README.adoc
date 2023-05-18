@@ -39,6 +39,14 @@ MODEL_N_CTX: Maximum token limit for both embeddings and LLM models
 
 Use the BreakFree Delivery Kit PDF file, exported from Confluence. This is available either in https://s3.console.aws.amazon.com/s3/buckets/aws-dk-sourceoftruth-useast1-s3?region=us-east-1&tab=objects[the provided S3 bucket] or you can attempt to export it directly from Confluence. This document should be uploaded into the `source_documents` directory, which you may need to create. Alternatively, you can use a directory of your choice but be sure to update the `.env` file.
 
+The following is a useful command to convert the downloaded HTML files (if used) into text files (that must end in `*.txt`).
+
+[source,bash]
+```
+cd ./DK-HTML            # or wherever the DK is located
+find ./ -iname "*.html" -type f -exec sh -c 'pandoc "${0}" -o "${0%.html}.txt"' {} 
+```
+
 == Instructions for ingesting the dataset
 
 Put any and all .txt, .pdf, or .csv files into the `source_documents` directory.
@@ -52,10 +60,6 @@ You can ingest as many documents as you want, and all will be accumulated in the
 If you want to start from an empty database, delete the `db` folder.
 
 *Note:* during the ingest process no data leaves your local environment. You could ingest without an internet connection.
-
-*Note:* the ingest process takes a significant amount of time. On an Intel i5 with 24 GB RAM the process took *8.5 hours*!
-
-*Note:* the ingest process still takes a significant amount of time on AWS c5.9xlarge; ~1hr 26min.
 
 == Ask questions to your documents, locally!
 
